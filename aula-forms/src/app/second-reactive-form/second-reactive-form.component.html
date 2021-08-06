@@ -1,0 +1,22 @@
+<form [formGroup]="personFormGroup" (ngSubmit)="onSubmit()">
+  <h1>Reactive forms</h1>
+  <p><label for="firstname">First Name:</label><input id="firstname" type="text" formControlName="firstName"></p>
+  <p><label for="lastname">First Name:</label><input id="lastname" type="text" formControlName="lastName"></p>
+  <p><label for="age">First Name:</label><input id="age" type="number" formControlName="age"></p>
+  <p>Complete the form to enable button.</p>
+  <div *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)">
+    <div *ngIf="firstName?.errors?.required">
+      firstName is required.
+    </div>
+    <div *ngIf="firstName?.errors?.minlength">
+      firstName must be at least 3 characters long.
+    </div>
+  </div>
+  <p>
+    <button type="submit" [disabled]="!personFormGroup.valid">Submit</button>
+  </p>
+  <p>First name: {{firstName?.value}}</p>
+  <p>Last name: {{lastName?.value}}</p>
+  <p>Age: {{age?.value}}</p>
+  <p>Result:  {{result?.lastName}}, {{result?.firstName}} with age of {{result?.age}}</p>
+</form>

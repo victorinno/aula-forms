@@ -1,0 +1,12 @@
+<h1>Reactive Form</h1>
+<label for="name">Name: </label><input id="name" type="text" [formControl]="nameFormControl">
+<p>
+  {{nameFormControl.value}}
+</p>
+<label for="age">Age: </label><input id="age" type="number" [formControl]="ageForm">
+<p>
+  <button (click)="addAge()">Add age</button>
+</p>
+<p>
+  {{ageForm.value}}
+</p>
